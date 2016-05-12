@@ -1,0 +1,32 @@
+<md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="main">
+        <md-content>
+          <div class="view">
+            <h1 ng-show="time">{{time}}</h1>
+            <h2 ng-show="date">{{date}}</h2>
+            <h2>Meteo :</h2>
+            <div class="meteo" ng-repeat="weatherItem in weather track by $index">
+                <center>
+                    <img ng-src="../../images/{{weatherItem.weather[0].icon}}.png"><br>
+                    <h3 class="weather-item">{{weatherItem.main.temp}}°C</h3><h3 class="weather-item">H +{{$index*6}}</h3>
+                </center>
+            </div>
+            <br>
+            <!--<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify_france:playlist:1c1NyazFiQPonWzNtxWd5M" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>-->
+        </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Soundcloud">
+        <md-content>
+            <div class="view">
+                <iframe width="50%" height="500" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/135768142&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+            </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="three">
+        <md-content>
+          <h1 class="md-display-2">Tab Three</h1>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>

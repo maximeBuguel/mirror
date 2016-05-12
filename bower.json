@@ -7,11 +7,13 @@
   "private": true,
   "dependencies": {
     "angular": "~1.5.5",
-    "angular-route": "~1.4.0",
-    "angular-loader": "~1.4.0",
-    "angular-mocks": "~1.4.0",
+    "angular-route": "~1.5.5",
+    "angular-loader": "~1.5.5",
+    "angular-mocks": "~1.5.5",
     "html5-boilerplate": "~5.2.0",
     "angular-material": "master",
-    "material-design-icons": "latest"
+    "material-design-icons": "latest",
+    "moment": "^2.13.0",
+    "angular-spotify": "^1.4.0"
   }
 }

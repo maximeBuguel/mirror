@@ -1,0 +1,46 @@
+body{
+    color: #FFFFFF;
+    background-color: #000000;
+    font-family: inherit ;
+    padding-left: 15px;
+}
+
+h1{
+    font-weight: 200 !important;
+    font-size: 5em;
+    margin: 0px;
+    padding: 5px;
+}
+
+h2{
+    font-weight: 200 !important;
+    font-size: 3em;
+    margin: 0px;
+    padding: 5px;
+}
+
+h3{
+    font-weight: 200 !important;
+    font-size: 2em;
+    margin: 0px;
+    padding: 5px;
+}
+
+
+.meteo{
+    display: inline-block;
+    margin: 15px;
+}
+
+.weather-item{
+    padding: 0px !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.view{
+    color: #FFFFFF;
+    background-color: #000000;
+    font-family: inherit ;
+    padding-left: 15px;
+}
