@@ -5,6 +5,12 @@ body{
     padding-left: 15px;
 }
 
+md-content.md-default-theme, md-content{
+        color: #FFFFFF;
+    background-color: #000000;
+    font-family: inherit ;
+    padding-left: 15px;
+}
 h1{
     font-weight: 200 !important;
     font-size: 5em;
@@ -26,7 +32,15 @@ h3{
     padding: 5px;
 }
 
-
+.time-to-work{
+    font-weight: 200 !important;
+    font-size: 4em;
+    margin: 0px;
+    padding: 10px;
+    vertical-align: middle;
+    position: fixed;
+    bottom: 0;
+}
 .meteo{
     display: inline-block;
     margin: 15px;
@@ -43,4 +57,30 @@ h3{
     background-color: #000000;
     font-family: inherit ;
     padding-left: 15px;
+}
+
+.view .p{
+    margin 0px !important;
+    padding: 5px;
+}
+.row{
+    margin 0px !important;
+}
+
+.meteo-div{
+    text-align: right;
+}
+
+.view .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+
+.informations-tabs{
+    height: 100%;
+}
+
+.information-tabs md-tabs.md-dynamic-height md-tabs-content-wrapper{
+    height:100%;
 }

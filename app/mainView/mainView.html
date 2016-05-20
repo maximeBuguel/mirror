@@ -1,18 +1,26 @@
-<md-tabs md-dynamic-height="" md-border-bottom="">
-      <md-tab label="main">
-        <md-content>
-          <div class="view">
-            <h1 ng-show="time">{{time}}</h1>
-            <h2 ng-show="date">{{date}}</h2>
-            <h2>Meteo :</h2>
-            <div class="meteo" ng-repeat="weatherItem in weather track by $index">
-                <center>
-                    <img ng-src="../../images/{{weatherItem.weather[0].icon}}.png"><br>
-                    <h3 class="weather-item">{{weatherItem.main.temp}}°C</h3><h3 class="weather-item">H +{{$index*6}}</h3>
-                </center>
+    <md-tabs class="informations-tabs" layout-fill md-selected="curentTab">
+      <md-tab class="informations-tabs" label="main">
+        <md-content class="informations-tabs">
+          <div class="informations-tabs view">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 ng-show="time">{{time}}</h1>
+                    <h2 ng-show="date">{{date}}</h2>
+                </div>
+                <div class="col-md-6" class="meteo-div">
+                    <div class="meteo" ng-repeat="weatherItem in weather.list track by $index">
+                        <center>
+                            <h3 class="weather-item">J +{{$index}}</h3>
+                            <img ng-src="../../images/{{weatherItem.weather[0].icon}}.png"><br>
+                            <h3 class="weather-item">Min : {{weatherItem.temp.min | limitTo: 4}}°C</h3> <h3 class="weather-item">Max : {{weatherItem.temp.max | limitTo: 4}}°C</h3>
+                        </center>
+                    </div>
+                </div>
+                <br>
             </div>
-            <br>
-            <!--<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify_france:playlist:1c1NyazFiQPonWzNtxWd5M" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>-->
+            <div class="row time-to-work">
+                 <img ng-src="../../images/car.png" height="64" width="64"><span>{{timeToWork.rows[0].elements[0].duration.text}}</span>
+            </div>
         </div>
         </md-content>
       </md-tab>
@@ -25,8 +33,26 @@
       </md-tab>
       <md-tab label="three">
         <md-content>
-          <h1 class="md-display-2">Tab Three</h1>
+            <div class="view">
+          <h1 class="md-display-2">Tab Three</h1>   
           <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            </div>
+        </md-content>
+      </md-tab>
+        <md-tab label="four">
+        <md-content>
+            <div class="view">
+          <h1 class="md-display-2">Tab four</h1>   
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            </div>
+        </md-content>
+      </md-tab>
+        <md-tab label="five">
+        <md-content>
+            <div class="view">
+          <h1 class="md-display-2">Tab five</h1>   
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            </div>
         </md-content>
       </md-tab>
     </md-tabs>
