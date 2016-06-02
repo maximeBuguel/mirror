@@ -4,7 +4,6 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.mainView',
-  'myApp.view2',
   'myApp.version',
   'ngAnimate',
   'ngMaterial'
@@ -12,3 +11,9 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/mainView'});
 }]);
+
+Leap.loop()
+ .use('boneHand', {
+   targetEl: document.body,
+   arm: false
+ });

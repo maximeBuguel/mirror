@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-6">
+        <h1>Bonjour {{currentUser}}</h1>
+        <h1 ng-show="time">{{time}}</h1>
+        <h2 ng-show="date">{{date}}</h2>
+    </div>
+    <div class="col-md-6" class="meteo-div">
+        <div class="meteo" ng-repeat="weatherItem in weather.list track by $index">
+            <center>
+                <h3 class="weather-item">J +{{$index}}</h3>
+                <img ng-src="../../images/{{weatherItem.weather[0].icon}}.png"><br>
+                <h3 class="weather-item">Min : {{weatherItem.temp.min | limitTo: 4}}°C</h3> <h3 class="weather-item">Max : {{weatherItem.temp.max | limitTo: 4}}°C</h3>
+            </center>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="row time-to-work">
+    <img ng-src="../../images/car.png" height="64" width="64"><span>{{timeToWork.rows[0].elements[0].duration.text}}</span>
+</div>

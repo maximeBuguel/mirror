@@ -84,3 +84,14 @@ h3{
 .information-tabs md-tabs.md-dynamic-height md-tabs-content-wrapper{
     height:100%;
 }
+
+
+canvas{
+  pointer-events: none;
+  z-index: 9999;
+  width: 70% !important;
+  height: 40% !important;
+  top:60% !important;
+  left: 15% !important;
+  position: fixed;
+}

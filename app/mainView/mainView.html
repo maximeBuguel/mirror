@@ -1,33 +1,15 @@
-    <md-tabs class="informations-tabs" layout-fill md-selected="curentTab">
+    <md-tabs ng-if="currentUser" class="informations-tabs" layout-fill md-no-ink-bar='true' md-selected="curentTab">
       <md-tab class="informations-tabs" label="main">
         <md-content class="informations-tabs">
           <div class="informations-tabs view">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 ng-show="time">{{time}}</h1>
-                    <h2 ng-show="date">{{date}}</h2>
-                </div>
-                <div class="col-md-6" class="meteo-div">
-                    <div class="meteo" ng-repeat="weatherItem in weather.list track by $index">
-                        <center>
-                            <h3 class="weather-item">J +{{$index}}</h3>
-                            <img ng-src="../../images/{{weatherItem.weather[0].icon}}.png"><br>
-                            <h3 class="weather-item">Min : {{weatherItem.temp.min | limitTo: 4}}°C</h3> <h3 class="weather-item">Max : {{weatherItem.temp.max | limitTo: 4}}°C</h3>
-                        </center>
-                    </div>
-                </div>
-                <br>
-            </div>
-            <div class="row time-to-work">
-                 <img ng-src="../../images/car.png" height="64" width="64"><span>{{timeToWork.rows[0].elements[0].duration.text}}</span>
-            </div>
-        </div>
+              <tab1 current-user="currentUser"></tab1>
+          </div>
         </md-content>
       </md-tab>
       <md-tab label="Soundcloud">
         <md-content>
             <div class="view">
-                <iframe width="50%" height="500" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/135768142&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+                    <tab2></tab2>
             </div>
         </md-content>
       </md-tab>
@@ -56,3 +38,10 @@
         </md-content>
       </md-tab>
     </md-tabs>
+<div ng-if="!currentUser">
+    <center>
+        <h1>Approchez vous du miroir</h1>
+        <h2>Afin que je vous reconaisse</h2>
+        <img ng-src="../../images/face.png"><br>
+    </center>
+</div>
