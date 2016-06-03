@@ -65,7 +65,6 @@ function MainViewCtrl($scope, $http, $timeout, $location){
          $http.get("/user").then(function sucess(response){
            $scope.currentUser = response.data;
         });
-        
     }
     
     

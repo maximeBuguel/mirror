@@ -1,4 +1,4 @@
-    <md-tabs ng-if="currentUser" class="informations-tabs" layout-fill md-no-ink-bar='true' md-selected="curentTab">
+    <md-tabs ng-show="currentUser" class="informations-tabs" layout-fill md-no-ink-bar='true' md-selected="curentTab">
       <md-tab class="informations-tabs" label="main">
         <md-content class="informations-tabs">
           <div class="informations-tabs view">
@@ -38,7 +38,7 @@
         </md-content>
       </md-tab>
     </md-tabs>
-<div ng-if="!currentUser">
+<div ng-show="!currentUser">
     <center>
         <h1>Approchez vous du miroir</h1>
         <h2>Afin que je vous reconaisse</h2>

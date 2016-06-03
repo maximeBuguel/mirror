@@ -37,7 +37,7 @@ function Tab1Ctrl($scope, $http, $timeout, $location){
     
     //**************************************************************************************//
     $scope.activate();
-    setInterval($scope.updateClock, 1000);
+    setInterval($scope.updateClock, 10000);
     setInterval($scope.updateWeather, 3600000);
     setInterval($scope.getTimeToWork, 600000);
         
@@ -53,7 +53,7 @@ function Tab1Ctrl($scope, $http, $timeout, $location){
     
     function updateClock() {
         moment.locale('fr');
-        $scope.time = moment().format('HH:mm:ss');
+        $scope.time = moment().format('HH:mm');
         $scope.date = moment().format('ll');
         $scope.$apply();
     }

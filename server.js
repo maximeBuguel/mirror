@@ -60,12 +60,17 @@ app.get("/weather", function(req, res) {
     };
     
     http.get(options, function(resp){
+        var body = "";
          resp.on('data', function(chunk){
-            res.send(chunk);
+            body += chunk;
           });
-        }).on("error", function(e){
+        resp.on('end', function() {
+            res.send(JSON.parse(body));
+        });
+        resp.on("error", function(e){
            res.send("Got error: " + e.message);
-    });
+        });
+  });
 });
 
 
@@ -73,7 +78,10 @@ app.get("/user", function(req, res) {
     res.send(currentUser);
 });
 
-app.put('/user', function (req, res) {
-  res.send('Got a PUT request at /user');
-  currentUser= req.body.user ;    
+app.post('/user', function (req, res) {
+  currentUser = req.body.user ; 
+  res.send('Got a POST request at /user');   
+},function(req, res){
+    
+    
 });
