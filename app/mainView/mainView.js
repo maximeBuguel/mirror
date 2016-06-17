@@ -30,15 +30,21 @@ function MainViewCtrl($scope, $http, $timeout, $location){
     $scope.activate = activate;
     $scope.switchTab = switchTab;
     $scope.getUser = getUser;
+    $scope.socket;
     //**************************************************************************************//
     $scope.activate();
-    setInterval($scope.getUser, 5000);
+    //setInterval($scope.getUser, 1000);
+    $scope.socket =  io.connect('http://localhost:8080');
         
-    
+    $scope.socket.on('message', function(message) {
+        console.log('Le serveur a un message pour vous : ' + message);
+        $scope.getUser();
+    })    
     
     //*****************************************************************************************//
     
     function activate(){
+        
         $scope.getUser();
         //*********************** Leap motion   *************************//
         var leapController = Leap.loop({enableGestures: true}, function(frame){
