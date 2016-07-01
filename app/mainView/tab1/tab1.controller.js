@@ -71,7 +71,7 @@ function Tab1Ctrl($scope, $http, $timeout, $location){
     }
     
     function getTimeToWork(){
-        $scope.mapsApi.destinations= new google.maps.LatLng($scope.currentUser[0].work.lat, $scope.currentUser[0].work.lng);
+        $scope.mapsApi.destinations= new google.maps.LatLng($scope.currentUser[0].work.cords.lat, $scope.currentUser[0].work.cords.lng);
         var service = new google.maps.DistanceMatrixService();
         service.getDistanceMatrix(
           {
@@ -84,6 +84,7 @@ function Tab1Ctrl($scope, $http, $timeout, $location){
     }
     
     function callback(response, status) {
+      //debugger;
       $scope.timeToWork = response;
     }
 

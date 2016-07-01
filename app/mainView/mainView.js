@@ -19,7 +19,7 @@ function MainViewCtrl($scope, $http, $timeout, $location){
     
     
     // Varialbes
-    $scope.curentTab = 0;
+    $scope.curentTab = 2;
     $scope.nbTabs = 5;
     $scope.currentHandValue = 0;
     $scope.previousHandValue = 0;

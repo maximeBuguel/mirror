@@ -14,6 +14,9 @@
     "angular-material": "master",
     "material-design-icons": "latest",
     "moment": "^2.13.0",
-    "leapjs":"latest"
+    "leapjs": "latest",
+    "angular-chart.js": "^0.10.2",
+    "angular-chartjs-directive": "^1.0.0",
+    "angular-google-chart": "^0.1.0"
   }
 }

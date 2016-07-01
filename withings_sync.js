@@ -9,6 +9,20 @@ app.use(cookieParser());
 app.use(session({secret: 'bigSecret'}));
 app.listen(3000);
 
+
+//Mongo
+var db;
+const MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect('mongodb://10.134.15.103:27017/withingsapi', (err, database) => {
+  db = database;
+  if(err){
+    console.log(err);
+  }
+});
+
+
+
 // OAuth flow
 app.get('/', function (req, res) {
     // Create an API client and start authentication via OAuth
@@ -72,7 +86,6 @@ app.get('/activity/steps', function (req, res) {
         accessTokenSecret: req.session.oauth.accessTokenSecret,
         userID: userID
     };
-    console.log(options);
     var client = new Withings(options);
 
     client.getDailySteps(new Date(), function(err, data) {
@@ -92,13 +105,24 @@ app.get('/measure/weight', function (req, res) {
         accessTokenSecret: req.session.oauth.accessTokenSecret,
         userID: userID
     };
-    console.log(options);
     var client = new Withings(options);
-    client.getWeightMeasures(new Date("01/01/2016"), new Date(), function(err, data) {
-        if (err) {
-            res.send(err);    
-        }
-        res.json(data);
-    })
-                         
+    var sync = function(){
+        console.log("data updated");
+        client.getWeightMeasures(null, null, function(err, data) {
+            if (err) {
+                res.send(err);    
+            }
+            db.collection('weightmeasure').drop(function(err, records) {
+                if (err) throw err;
+            });
+            db.collection('weightmeasure').insert(data, function(err, records) {
+                if (err) throw err;
+            });
+
+        })
+    }
+    sync();
+    var twoHours = 72000000;
+    setInterval(sync, 36000000);
+    res.json("start putting data in DB every hour");                     
 });

@@ -95,3 +95,20 @@ canvas{
   left: 15% !important;
   position: fixed;
 }
+
+
+#chart{
+  position: relative;  
+    
+}
+
+.weight-table{
+    width: 70%;
+}
+
+
+.weight-table td{
+    padding: 20px;
+    border: solid 1px;
+    text-align: center;
+}

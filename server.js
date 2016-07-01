@@ -2,7 +2,6 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
 var http = require('http');
-var Withings = require('withings-lib');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var apiKeys = require('./client_secret');
@@ -18,10 +17,19 @@ app.use(session({secret: 'bigSecret'}));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
+var withings;
+
 const MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect('mongodb://10.134.15.103:27017/mirror', (err, database) => {
   db = database;
+  if(err){
+    console.log(err);
+  }
+});
+
+MongoClient.connect('mongodb://10.134.15.103:27017/withingsapi', (err, database) => {
+  withings = database;
   if(err){
     console.log(err);
   }
@@ -110,6 +118,13 @@ app.get("/user", function(req, res) {
   db.collection('users').find({"id":parseInt(currentUser)}).toArray(function(error, documents){
     res.send(documents);
   });
+});
+
+app.get("/weight", function(req ,res){
+  withings.collection('weightmeasure').find().sort({date:-1}).limit(10).toArray(function(error, documents){
+    console.log(documents);
+    res.send(documents);
+  });    
 });
 
 app.post('/user', function (req, res) {
