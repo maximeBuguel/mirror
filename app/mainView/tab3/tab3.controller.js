@@ -35,19 +35,21 @@ function Tab3Ctrl($scope, $http, $timeout, $location){
             datasets: [
                 {
                     label: "My First dataset",
-                    fill: false,
-                    lineTension: 0.1,
+                    fill: true,
+                    lineTension: 0.5,
+                    strokeColor: 'rgba(255,255,255,1)',
+                    pointColor: 'rgba(255,255,255,1)',
                     backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
+                    borderColor: "rgba(255,255,255,1)",
                     borderCapStyle: 'butt',
                     borderDash: [],
-                    borderDashOffset: 0.0,
+                    borderDashOffset: 0.5,
                     borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBorderColor: "rgba(255,255,255,1)",
                     pointBackgroundColor: "#fff",
                     pointBorderWidth: 1,
                     pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBackgroundColor: "rgba(255,255,255,1)",
                     pointHoverBorderColor: "rgba(255,255,255,1)",
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
@@ -58,9 +60,17 @@ function Tab3Ctrl($scope, $http, $timeout, $location){
             }; 
             
             option = {
+                 scaleFontColor: "#ffffff", 
+                pointLabelFontSize: 20,
+                lineTension:3,
+                borderColor:"rgba(255,255,255,1)",
+                showLines:true,
+                bezierCurve: true,
+                datasetFill:false,
                 scales:{
                     yAxis: [{
                         ticks:{
+                            scaleSteps:1,
                             beginAtZero:true
                         }
                     }]
@@ -88,7 +98,7 @@ function Tab3Ctrl($scope, $http, $timeout, $location){
                 $('#chart-container').append('<canvas id="chart"></canvas>');
                 var ctx = document.getElementById("chart").getContext("2d");
                 ctx.canvas.width = $('#chart-container').width(); // resize to parent width
-                ctx.canvas.height = 450; // resize to parent height
+                ctx.canvas.height = 600; // resize to parent height
     }
     
     
